@@ -50,7 +50,8 @@ const server = http.createServer((req, res) => {
     }
     const ext = path.extname(filePath).slice(1);
     const mime = { html: 'text/html', js: 'application/javascript', css: 'text/css',
-                   json: 'application/json', png: 'image/png', ico: 'image/x-icon' };
+                   json: 'application/json', png: 'image/png', ico: 'image/x-icon',
+                   glb: 'model/gltf-binary', gltf: 'model/gltf+json', md: 'text/markdown' };
     res.writeHead(200, { 'Content-Type': mime[ext] || 'application/octet-stream' });
     res.end(data);
   });
