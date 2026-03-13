@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  pantheon-village:
+    build: .
+    container_name: pantheon-village
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount the OpenClaw agents directory (read-only)
+      - /home/miki/.openclaw/agents:/data/agents:ro
+    environment:
+      - PORT=3000
+      - AGENTS_DIR=/data/agents
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pantheon.rule=Host(`pantheon.mikebg.dev`)"
+      - "traefik.http.services.pantheon.loadbalancer.server.port=3000"

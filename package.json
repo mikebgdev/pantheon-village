@@ -1,0 +1,14 @@
+{
+  "name": "pantheon-village",
+  "version": "1.0.0",
+  "description": "3D visualization of the Pantheon — OpenClaw agents in a Greek temple",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "ws": "^8.18.0"
+  }
+}
